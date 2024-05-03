@@ -19,14 +19,14 @@ export class Produto {
 
     @IsNumber({maxDecimalPlaces: 2})
     @IsNotEmpty()
-    @Column({ type: "decimal", precision:10, scale: 2, nullable: false})  
+    @Column({ type: "decimal", precision:10, scale: 2, nullable: false})
     preco: number
 
-    @Column()  
+    @Column({length: 1000, nullable: false})  
     foto: string
     
     @ManyToOne(() => Categoria, (categoria) => categoria.produto, {
         onDelete: "CASCADE"
     })
-    categoria: Categoria;
+    categoria: Categoria
 }

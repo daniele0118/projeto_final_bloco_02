@@ -29,10 +29,10 @@ export class CategoriaService {
         return categoria;
     }
 
-    async findByTipo(descricao: string): Promise<Categoria[]> {
+    async findByTipo(tipo: string): Promise<Categoria[]> {
         return await this.categoriaRepository.find({
             where: {
-                tipo: ILike(`%${descricao}%`)
+                tipo: ILike(`%${tipo}%`)
             }
         })
     }
