@@ -15,9 +15,10 @@ export class ProdutoController {
 
   @Get('/:id')
   @HttpCode(HttpStatus.OK)
-  findById(@Param('id',ParseIntPipe) id: number): Promise<Produto> {
+  findById(@Param('id', ParseIntPipe) id: number): Promise<Produto> {
     return this.produtoService.findById(id);
   }
+
 
   @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
@@ -25,7 +26,7 @@ export class ProdutoController {
     return this.produtoService.findByNome(nome);
   }
 
-  @Post('/nome/:nome')
+  @Post()
   @HttpCode(HttpStatus.CREATED)
   create(@Body() produto: Produto): Promise<Produto>{
     return this.produtoService.create(produto);
